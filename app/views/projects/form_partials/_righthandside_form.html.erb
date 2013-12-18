@@ -1,0 +1,177 @@
+<div class="large-6 columns right-side">
+  <div>
+    <strong class="top">Personal Info</strong>
+
+    <%= user.input :first_name, label: false,
+                   input_html: {
+                     class: 'medium-small validate-me',
+                     'data-error-message' => 'Invalid First Name',
+                     placeholder: 'First Name'
+                   } %>
+
+    <%= user.input :last_name, label: false,
+                   input_html: {
+                     class: 'medium-small right validate-me',
+                     'data-error-message' => 'Invalid Last Name',
+                     placeholder: 'Last Name'
+                   } %>
+
+    <%= user.input :phone, label: false,
+                    as: :string,
+                    input_html: {
+                      class: 'validate-me',
+                      'data-error-message' => 'Invalid Last Name',
+                      placeholder: 'Primary Phone Number'
+                    } %>
+  </div>
+
+  <div class="payment-info">
+    <strong>Payment Info</strong>
+    <span class="payment-methods">&nbsp;</span>
+    <span class="payment-errors"><%= @project.errors[:base].try(:first) %></span>
+
+    <div class="left-inputs">
+      <%= project.input :name_on_card, label: false,
+                   input_html: {
+                      id: "name-on-card",
+                      class: 'validate-me',
+                      placeholder: 'Name on Card',
+                      data_error_message: "Invalid Name"
+                   }  %>
+      <%= project.input :card_number, label: false,
+                   input_html: {
+                      id: "card-number",
+                      class: 'validate-me',
+                      placeholder: 'Card Number',
+                      data_error_message: "Invalid Card Number"
+                   }  %>
+    </div>
+
+    <div class="right-inputs">
+      <span class="date-inputs">
+        <%= project.input :card_month, label: false,
+                   input_html: {
+                      id: "card-expiry-month",
+                      class: 'validate-me',
+                      placeholder: 'MM',
+                      data_error_message: "MM"
+                   }  %>
+      <%= project.input :card_year, label: false,
+                   input_html: {
+                      id: "card-expiry-year",
+                      class: 'year validate-me',
+                      placeholder: 'YY',
+                      data_error_message: "YY"
+                   }  %>
+      </span>
+      <%= project.input :card_cvc, label: false,
+                   input_html: {
+                      id: "card-cvc",
+                      class: 'validate-me',
+                      placeholder: 'CVC',
+                      data_error_message: "Invalid CVC"
+                   }  %>
+    </div>
+  </div>
+
+  <%= project.input :card_token, as: :hidden %>
+
+  <div class="billing-address-container">
+    <strong>Billing Address</strong>
+
+    <%= user.fields_for :addresses, @user_address do |address| %>
+
+      <%= address.input :line_1,
+                         label: false,
+                         input_html: {
+                           placeholder: 'Address Line 1',
+                           class: 'validate-me',
+                           'data-error-message' => 'Invalid Address'
+                         } %>
+
+      <%= address.input :line_2,
+                         label: false,
+                         required: false,
+                         input_html: {
+                           placeholder: 'Address Line 2'
+                         } %>
+
+      <%= address.input :city,
+                         label: false,
+                         input_html: {
+                           placeholder: 'City',
+                           class: 'validate-me',
+                           'data-error-message' => 'Invalid City'
+                         } %>
+
+      <%= address.input :state,
+                         label: false,
+                         input_html: {
+                           placeholder: 'State',
+                           class: 'validate-me',
+                           'data-error-message' => 'Invalid State'
+                         } %>
+
+      <%= address.input :zipcode,
+                          label: false,
+                          input_html: {
+                            placeholder: 'Zip Code',
+                            class: 'validate-me',
+                            'data-error-message' => 'Invalid Zip Code'
+                          } %>
+    <% end %>
+    <span class="checkbox-wrapper">
+      <input class="boolean optional" id="service-addrs" name="user[addresses_attributes][0][same_as_billing_address]" type="checkbox" checked="checked">
+      <label class="checkbox-label" for="service-addrs">Use as service address</label>
+    </span>
+    <div class="service-address-wrapper">
+      <strong>Service Address</strong>
+      <%= project.fields_for :address, @project_address do |address| %>
+
+        <%= address.input :line_1,
+                           label: false,
+                           required: false,
+                           input_html: {
+                             placeholder: 'Address Line 1'
+                           } %>
+
+        <%= address.input :line_2,
+                           label: false,
+                           required: false,
+                           input_html: {
+                             placeholder: 'Address Line 2'
+                           } %>
+
+        <%= address.input :city,
+                           label: false,
+                           required: false,
+                           input_html: {
+                             placeholder: 'City'
+                           } %>
+
+        <%= address.input :state,
+                           label: false,
+                           required: false,
+                           input_html: {
+                             placeholder: 'State'
+                           } %>
+
+        <%= address.input :zipcode,
+                            label: false,
+                            required: false,
+                            input_html: {
+                              placeholder: 'Zip Code'
+                            } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="submit-order">
+    <!-- <input type="submit" value="Proceed to Checkout" class="button yellow" id="submit-order-btn"> -->
+    <a href="#" id="submit-order-btn" class="button yellow order-btn">Proceed to Checkout</a>
+    <span class="footnote">
+      You're not billed until your project is complete and you are satisfied
+    </span>
+  </div>
+</div>
+</div>

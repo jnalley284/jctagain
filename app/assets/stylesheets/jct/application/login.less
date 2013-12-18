@@ -1,0 +1,43 @@
+.login-wrapper {
+	min-height:100%;
+	background-color:@loginBg;
+	background-image: url("/assets/application/login/shadow.png");
+	background-repeat: no-repeat;
+	background-position: center 80px;
+	.login-container {
+		padding:110px 0;
+		text-align:center;
+		.white-logo {
+			margin: 0 auto;
+		}
+	}
+	h2 {
+		color:rgba(106,106,106,1);
+		margin:0 0 38px;
+		padding: 70px 0 0 0;
+	}
+	form {
+		margin:0;
+	}
+	input {
+		margin:0 auto 18px auto;
+		.placeholder(rgba(73,73,73,1));
+	}
+	input[type="submit"], a { // remove a once submit enabled
+		margin:10px 0 56px 0;
+	}
+	.forgot-pword {
+		display:block;
+		margin:50px 0 0 0;
+		color:rgba(104,104,104,1);
+	}
+}
+
+.login-form {
+	background: @loginFromBg;
+	.box-shadow(0px 0px 14px rgba(0,0,0,1));
+	text-align: center;
+	.border-radius(@radius + 2);
+	max-width: 630px;
+	margin:36px auto 0 auto;
+}

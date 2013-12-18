@@ -1,0 +1,85 @@
+<section class="breadcrumb-wrapper">
+  <div class="row">
+    <div class="large-12">
+      <%= link_to 'Dashboard', dashboard_path %>
+      <span class="divider">//</span>
+      <%= link_to 'Active Projects', projects_path(completed: false) %>
+      <span class="divider">//</span>
+      <span>Project <%= @project.flex_project_id ? @project.flex_project_id : @project.id %></span>
+    </div>
+  </div>
+</section>
+
+<div class="row project-header">
+  <div class="large-12">
+    <div class="page-title">
+      <h2 class="app-header">Project Number <%= @project.flex_project_id ? @project.flex_project_id : @project.id %></h2>
+      <ul>
+        <li>Due date: <%= @project.due_date %></li>
+        <li>Days Open: <%= ((Time.now - @project.created_at.to_time) / 1.day).round %></li>
+        <li>Status: <span><%= @project.complete ? 'Inactive' : 'Active' %></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-8 columns no-left-padding">
+    <div class="project-updates">
+      <strong class="title">Project Updates</strong>
+      <ul>
+        <% @project.statuses.each do |status| %>
+          <li class="update-wrapper">
+            <ul>
+              <li>
+                <strong>Sharon Jones</strong>
+                <div class="timestamp-wrap">
+                  <span><%= status.created_at.strftime("%m/%d/%Y") %></span>
+                  <span><%= status.created_at.strftime("%I:%M %P") %></span>
+                </div>
+              </li>
+              <li class="description">
+                <span class="status"><%= status.status_code %></span>
+                <%= simple_format status.message %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <ul class="general-info">
+     <li class="info-block">
+       <ul>
+         <li><strong>Work Description</strong></li>
+         <li>
+           <%= simple_format @project.name %>
+        </li>
+       </ul>
+     </li>
+     <li class="info-block">
+       <ul>
+         <li><strong>Location</strong></li>
+         <% address = @project.address.present? ? @project.address : current_user.address %>
+         <li><%= address.point_of_contact %></li>
+         <li><%= address.phone_number %></li>
+         <li><%= address.line_1 %></li>
+         <%= content_tag :li, address.line_2 unless address.line_2.blank?  %>
+         <li><%= "#{address.city}, #{address.state}, #{address.zipcode}" %></li>
+       </ul>
+     </li>
+     <li class="info-block">
+       <ul>
+         <li><strong>Contact Just Call Tony</strong></li>
+         <li>5800.818.4563</li>
+         <li>
+           <a href="mailto:service@justcalltony.com?">
+            service@justcalltony.com
+          </a>
+         </li>
+       </ul>
+     </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+input[type="text"],input[type="password"] {
+	margin:0 0 10px 0;
+	height: 38px;
+	.box-shadow(none);
+	.border-radius(4px);
+	&:focus {
+		background:@white;
+		border:1px solid @focusBlue;
+	}
+	&.medium-small {
+		width:48% !important;
+		float: left;
+	}
+	&.medium {
+		width:276px;
+	}
+	&.date {
+		background-image: url("/assets/application/order/calendar.png");
+		background-repeat: no-repeat;
+		background-position: 97% center;
+	}
+}
+
+.validate-me {
+	&.with-error {
+		.placeholder(@errorRed);
+	}
+}
+
+.checkbox-wrapper {
+	display: inline-block;
+	margin: 8px 0;
+	input[type="checkbox"] {
+		float:left;
+	}
+	.checkbox-label {
+		float: left;
+		margin:1px 0 0 8px;
+		color:rgba(86,86,86,1);
+	}	
+}
+
+

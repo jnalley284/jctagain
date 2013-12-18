@@ -1,0 +1,81 @@
+@portalSize: 145px;
+
+.dashboard-wrapper {
+	height:514px;
+}
+
+.dashboard-container {
+	text-align: center;
+	max-width:650px;
+	margin:0 auto;
+	h2 {
+		margin:82px 0 110px 0;
+	}
+}
+
+.portal-wrap {
+	width:@portalSize;
+	float:left;
+	height:@portalSize + 5;
+	position:relative;
+	.border-radius(@radius);
+	.transition(all .2s);
+	&.middle {
+		margin:0 106px;
+	}
+	.portal {
+		float:left;
+		height: @portalSize;
+		width:100%;
+		background:@dashboardYellow;
+		border:1px solid @dashboardYellow;
+		.border-radius(@radius);
+		position:absolute;
+		z-index:-1;
+		left:0;
+		.transition(all .2s);
+		&.new-service {
+			background: @dashboardYellow url("/assets/application/dashboard/plus-icon.png") no-repeat center;
+		}
+		.arrow {
+			position:absolute;
+			width:11px;
+			height:6px;
+			bottom:-6px;
+			left:50%;
+			background: url("/assets/application/dashboard/portal-tip.png") no-repeat center;
+			margin-left:-5px;
+		}
+	}
+	h1 {
+		color:rgba(254,254,254,1);
+		font-size:64px;
+		margin:28px 0 0 0;
+	}
+	strong {
+		font-size: @pSize + 2;
+		font-weight: bold;
+		position: absolute;
+		bottom: -34px;
+		width: 100%;
+		left: 0;
+	}
+	&:hover {
+		.box-shadow(inset 0 11px 8px -10px rgba(158, 121, 46, 1));
+		.portal {
+			background: rgba(226,193,87,1);
+			border-top:1px solid rgba(156,117,45,1);
+			border-left:1px solid rgba(191,155,65,1);
+			border-right:1px solid rgba(191,155,65,1);
+			border-bottom:1px solid rgba(214,180,80,1);
+			.box-shadow(inset 0px 1px 6px rgba(214,180,80,1));
+			&.new-service {
+				background: rgba(226,193,87,1) url("/assets/application/dashboard/plus-icon.png") no-repeat center;
+			}
+			.arrow {
+				background: url("/assets/application/dashboard/portal-tip-hover.png") no-repeat center;
+				border-top:1px solid rgba(225, 192, 86, 1);
+			}
+		}
+	}
+}

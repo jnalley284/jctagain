@@ -1,0 +1,26 @@
+<div id="register-modal" class="reveal-modal">
+  <div class="modal-title">
+    <h2>Register with Just Call Tony</h2>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for("user", url: user_registration_path, remote: true, html: {id: 'registration-modal'}) do |f| %>
+      <div class="errors"></div>
+      <%= f.input :email, placeholder: 'Email', as: :string, label: false %>
+
+      <%= f.input :password, placeholder: 'Password', as: :password, label: false %>
+
+      <%= f.input :password_confirmation, placeholder: 'Retype Password', as: :password, label: false %>
+
+      <%= f.submit "Register", class: 'button yellow register-button' %>
+      <a class="already-registered" data-reveal-id="login-modal" href="#">Already a user?</a>
+    <% end %>
+
+    <div class="success-view">
+      <span class="modal-icon">&nbsp;</span>
+      <h2 class="modal-large-text">
+        Thanks for signing up! You'll be redirected in a moment. 
+      </h2>
+    </div>
+  </div>
+</div>

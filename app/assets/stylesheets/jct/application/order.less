@@ -1,0 +1,272 @@
+.order-wrapper {
+  display:none;
+}
+
+// Shared Styles
+.order-form {
+  .border-radius(@radius + 1);
+  background:@white;
+  border:1px solid rgba(198,198,198,1);
+  float:left;
+  margin:0 0 40px 0;
+  position:relative;
+  width:100%;
+  strong {
+    font-size: @pSize + 2;
+    color:rgba(64,63,63,1);
+  }
+  .button {
+    margin:20px 0 0 0;
+    width:100%;
+    margin:0;
+  }
+  .footnote {
+    display: block;
+    margin: 12px 0 0 0;
+    font-size: @pSize;
+    letter-spacing: 0;
+    font-style: italic;
+    color: rgba(86, 86, 86, 1);
+  }
+}
+
+#first-order {
+  display:block;
+}
+
+// First Order View
+.left-side {
+  padding:34px 0 82px 0!important;
+  background: rgba(50,52,55,1);
+  .border-top-left-radius(@radius);
+  .border-bottom-left-radius(@radius);
+  .box-shadow(inset -10px 0px 18px -2px rgba(32,33,35,1));
+  position:absolute !important;
+  top:0;
+  bottom:0;
+  input {
+    border:0;
+    &:focus {
+      border:none;
+    }
+  }
+
+  .divider {
+    hr {
+      margin:0;
+      &.top {
+        border-top:1px dashed rgba(33,35,38,1);
+      }
+      &.bottom {
+        border-top:1px dashed rgba(66,69,72,1);
+      }
+    }
+  }
+
+  .form-icon {
+    float:left;
+  }
+  
+  h3 {
+    color:@white;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom:18px;
+  }
+
+  .work-order {
+    float: left;
+    width: 100%;
+    padding: 0 22px 22px 22px;
+    strong {
+      display: block;
+      margin: 0 0 14px 0;
+      color:@white;
+    }
+    a {
+      color:rgba(143,147,152,1);
+      font-family: "open-sans";
+      font-size: @pSize - 1;
+      span {
+        color:rgba(254,254,255,1);
+      }
+      &:hover {
+        color:rgba(143,147,152,.9);
+      }
+    }
+  }
+
+  .karma, .other-customers {
+    padding:40px;
+  }
+
+  .karma {   
+    .form-icon {
+      width:20px;
+      height:20px;
+      background: url("/assets/application/order/minus.png") no-repeat;
+      margin:5px 10px 0 0;
+    } 
+    p {
+      margin:0;
+      color:rgba(143,147,152,1);
+    }
+  }
+
+  .other-customers {
+    .form-icon {
+      width:26px;
+      height:18px;
+      background: url("/assets/application/order/message.png") no-repeat;   
+      margin: 6px 10px 0 0;
+    }
+    ul {
+      margin:0;
+    }
+    li {
+      list-style:none;
+      color:rgba(143,147,152,1);
+      font-style:italic;
+      margin:10px 0;
+    }
+  }
+}
+
+.right-side {
+  padding:34px 22px !important;
+  strong {
+    display:inline-block;
+    margin:16px 0 14px 0;
+    &.top {
+      margin-top:0;
+      display:block;
+    }
+  }
+  input {
+    .right {
+      float:right;
+    }
+  }
+  .left-inputs {
+    width:60%;
+    float:left;
+  }
+  .right-inputs {
+    width:36%;
+    float: right;
+    .date-inputs {
+      input {
+        width:44%;
+        float: left;
+        &.year {
+          float:right;
+        }
+      }
+    }
+  }
+}
+
+.payment-info {
+  .payment-methods {
+    display:block;
+    margin:0 0 10px 0;
+    width:194px;
+    height:21px;
+    background:url("/assets/application/order/new-cards.png") no-repeat;
+  }
+}
+
+.service-address-wrapper {
+  display:none;
+  float:left;
+  width:100%;
+}
+
+// Second View 
+#order-summary {
+  h3 {
+    font-family:"proxima-nova";
+    font-size: 18px;
+    font-weight: 100;
+    color:rgba(86,86,86,1);
+    margin:8px 0;
+    &:first-of-type {
+      margin-bottom:30px;
+    }
+  }
+  .order-form {
+    padding:50px 0;
+    .right {
+      border-left:1px solid rgba(198,198,198,1);
+    }
+    .large-6 {
+      padding:0 40px;
+    }
+  }
+  .order-button {
+    width:54px;
+    float:right;
+    border:1px solid rgba(194,202,210,1);
+    background:rgba(232,237,242,1);
+    color:rgba(86,86,86,1);
+    text-transform: lowercase;
+    font-weight:bold;
+    padding:11px 0;
+  }
+  ul {
+    margin:0 0 30px 0;
+    line-height: 25px;
+    li {
+      list-style:none;
+      color:rgba(107,106,106,1);
+      font-size:14px;
+    }
+  }
+  .checkbox-wrapper {
+    margin-bottom:32px;
+    a {
+      color:@black;
+    }
+  }
+}
+
+// Third View
+#order-confirmation {
+  .order-confirmation {
+    text-align:center;
+    margin:140px 0 134px 0;
+    .icon {
+      display:block;
+      width:72px;
+      height:72px;
+      margin:0 auto 60px auto;
+      background:url("/assets/application/order/check.png") no-repeat;
+    }
+    h2 {
+      color:rgba(68,71,73,1);
+      font-size: 20px;
+      font-weight: 400;
+      padding: 0 90px;
+    }
+    .button {
+      margin:80px 0 0 0;
+      color:rgba(36,36,35,1);
+      background:rgba(229,232,233,1);
+      border:1px solid rgba(180,188,193,1);
+      font-weight:bold;
+      padding:15px 32px 13px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  .order-row {
+    padding:0 !important;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .left-side {
+    position: relative !important;
+  }
+}

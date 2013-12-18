@@ -1,0 +1,32 @@
+body {
+	&.application {
+		background:rgba(241,241,241,1);
+		.row {
+			max-width:980px;
+		}
+		a {
+			color:@linkBlue;
+			&:hover {
+				color:@linkHover;
+			}
+		}
+	}
+	.no-left-padding {
+		padding-left:0;
+	}
+}
+
+.white-logo {
+	display:block;
+	width:166px;
+	height:28px;
+	background:url("/assets/application/white-logo.png") no-repeat;
+}
+
+.app-header {
+	color:@appGreyText;
+}
+
+.alert-box {
+	margin-bottom: 0 !important;
+}

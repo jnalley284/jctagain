@@ -1,0 +1,35 @@
+<section class="breadcrumb-wrapper">
+  <div class="row">
+    <div class="large-12">
+      <span>Dashboard</span>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard-wrapper">
+  <div class="dashboard-container">
+   <h2 class="app-header">Project Dashboard</h2>
+   <%= link_to new_project_path, class: 'portal-wrap' do %>
+     <span class="portal new-service">
+       <span class="arrow">&nbsp;</span>
+     </span>
+     <strong>Order New Service</strong>
+   <% end %>
+
+   <%= link_to projects_path(completed: false), class: 'portal-wrap middle' do %>
+     <span class="portal">
+       <h1><%= current_user.projects.open.count %></h1>
+       <span class="arrow">&nbsp;</span>
+     </span>
+     <strong>Active Projects</strong>
+   <% end %>
+
+   <%= link_to projects_path(completed: true), class: 'portal-wrap ' do %>
+     <span class="portal">
+       <h1><%= current_user.projects.completed.count %></h1>
+       <span class="arrow">&nbsp;</span>
+     </span>
+     <strong>Completed Projects</strong>
+   <% end %>
+  </div>
+</section>

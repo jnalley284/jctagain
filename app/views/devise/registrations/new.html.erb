@@ -1,0 +1,46 @@
+<div class="register">
+	<div class="container">
+		<h2>Requested Service: <%= session[:project_name] %> <%= content_tag :small, link_to('change','') %></h2>
+		<div class="row">
+			<div class="span7 form-container">
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<%= devise_error_messages! %>
+					<legend>
+						Create Your Account
+						<small>Creating your account is as easy as 1.2.3</small>
+					</legend>
+					<%=
+						f.text_field :first_name, placeholder: 'First Name'
+					%>
+
+					<%=
+						f.text_field :last_name, placeholder: 'Last Name'
+					%>
+
+					<%=
+						f.email_field :email, placeholder: 'Email'
+					%>
+
+					<%=
+						f.password_field :password, placeholder: 'Password'
+					%>
+
+					<%=
+						f.password_field :password_confirmation,
+							placeholder: 'Retype Password'
+					%>
+
+					<%= f.submit "Create Account" %>
+
+					<%= link_to "Already have an account?", new_session_path(resource_name), class: 'already-registered' %>
+				<% end %>
+			</div>
+			<div class="span5 sell">
+				<h2>
+					You just made a great decision!<br>
+					You're in great company now<br> with the Fortune 100's
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>

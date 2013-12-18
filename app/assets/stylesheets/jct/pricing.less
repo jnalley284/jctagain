@@ -1,0 +1,64 @@
+.pricing-program {
+	background:@beige;
+	padding:0 0 72px 0;
+	.content {
+		text-align:center;
+		padding:136px 0 0 0;
+		h1 {
+			color: rgba(62, 62, 62, 1);
+			margin:0;
+		}
+		p {
+			font-size:14px;
+			margin:34px 0 60px;
+		}
+	}
+	.info-box {
+		background:@strongYellow;
+		.border-radius(@radius);
+		text-align:center;
+		padding:28px 20px;
+		p {
+			color:@white;
+			font-family: "proxima-nova";
+			font-weight: 200;
+			font-size: 17px;
+			margin:20px 0 0;
+		}
+		.icon {
+			width:45px;
+			height:43px;
+			display:block;
+			margin:0 auto;
+		}
+		&.first {
+			.icon {
+				background:url("/assets/pricing/first.png") no-repeat;
+			}
+		}
+		&.second {
+			.icon {
+				background:url("/assets/pricing/second.png") no-repeat;
+			}
+		}
+		&.third {
+			.icon {
+				background:url("/assets/pricing/third.png") no-repeat;
+			}
+		}
+	}
+}
+
+.pricing-hero {
+	height:500px;
+	background:url("/assets/pricing/bg.png") no-repeat;
+	background-size:cover;
+	.pricing-content {
+		.strapline {
+			padding:170px 0 0 0;
+		}
+		.button {
+			margin:26px 0 0;
+		}
+	}
+}

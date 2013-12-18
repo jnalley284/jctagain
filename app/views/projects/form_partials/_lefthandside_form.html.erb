@@ -1,0 +1,52 @@
+<div class="row order-row">
+  <div class="large-10 large-offset-1">
+    <div class="order-form">
+      <div class="large-6 columns left-side">
+
+        <div class="work-order">
+          <strong>Work Order Form</strong>
+
+          <%= project.input :name, label: false,
+                      input_html: {
+                        class: 'validate-me',
+                        'data-error-message' => 'Invalid service',
+                        placeholder: 'What Service do you need?'
+                      } %>
+
+          <%= project.input :due_date, label: false,
+                      input_html: {
+                        class: 'date with-datepicker validate-me',
+                        'data-error-message' => 'Invalid date',
+                        placeholder: 'When do you need it?'
+                      },
+                      as: :string %>
+
+          <a href="#" data-reveal-id="emergency-modal">Is this an <span>emergency</span>?</a>
+        </div>
+
+        <span class="divider"><hr class="top"><hr class="bottom"></span>
+
+        <div class="karma">
+          <span class="form-icon"></span>
+          <h3>Our $500 Not-to-Exceed Program</h3>
+          <p>
+            90% of our orders are under $500. If for any reason the estimate is more than $500
+            , we will contact you with a detailed estimate and ask for your approval before any
+            work is done. Can you do larger projects? Yes! And we do all the work to get you an
+            estimate for your approval.
+          </p>
+        </div>
+
+        <span class="divider"><hr class="top"><hr class="bottom"></span>
+
+        <div class="other-customers">
+          <span class="form-icon"></span>
+          <h3>What other customers are ordering:</h3>
+          <ul>
+            <li>“Our roof needs 10 shingles replaced”</li>
+            <li>“Toilet clogged in main office”</li>
+            <li>“Replace lightbulbs in facility”</li>
+            <li>“Driveway needs to be re-sealed”</li>
+          </ul>
+        </div>
+      </div>

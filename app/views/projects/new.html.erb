@@ -1,0 +1,37 @@
+<section class="breadcrumb-wrapper">
+  <div class="row">
+    <div class="large-12">
+      <%= link_to 'Dashboard', dashboard_path %>
+      <span class="divider">//</span>
+      <span>Order Service</span>
+    </div>
+  </div>
+</section>
+<%= simple_form_for @user, url: projects_path, method: :post, html: { id: 'project-form' } do |user| %>
+  <%= user.simple_fields_for :projects, @project do |project| %>
+    <section class="order-wrapper" id="first-order">
+      <div class="row project-header">
+        <div class="large-12">
+          <div class="page-title centered">
+            <h2 class="app-header">Order Service</h2>
+          </div>
+        </div>
+      </div>
+
+      <%= render partial: 'projects/form_partials/lefthandside_form',
+                 locals: { project: project, user: user } %>
+
+      <%= render partial: 'projects/form_partials/righthandside_form',
+                 locals: { project: project, user: user } %>
+
+        </div>
+      </div>
+    </section>
+
+    <%= render partial: 'projects/form_partials/order_summary',
+                 locals: { project: project, user: user } %>
+
+  <% end %>
+<% end %>
+
+<%= render 'projects/form_partials/emergency_modal' %>

@@ -1,0 +1,51 @@
+<section class="order-wrapper" id="order-summary">
+  <div class="row project-header">
+    <div class="large-12">
+      <div class="page-title centered">
+        <h2 class="app-header">Order Summary</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row order-row">
+    <div class="large-10 large-offset-1">
+      <div class="order-form">
+        <div class="large-6 columns">
+          <strong>You need:</strong>
+          <h3 id="service-needed"></h3>
+
+          <strong>Due on:</strong>
+          <h3 id="due-date"></h3>
+        </div>
+
+        <div class="large-6 columns right">
+          <a href="#" class="button order-button order-btn" data-next-section="first-order">edit</a>
+          <ul>
+            <li><strong>Billing Address</strong></li>
+            <li id="billing-name"></li>
+            <li id="billing-line-1"></li>
+            <li id="billing-city"></li>
+            <li id="billing-state"></li>
+            <li id="billing-zip"></li>
+          </ul>
+
+          <span class="checkbox-wrapper">
+            <input type="checkbox" name="checkbox" id="terms"/>
+            <label class="checkbox-label" for="terms">
+              I agree to JCT's <a href="/terms.html">Terms and Conditions</a>
+            </label>
+          </span>
+
+          <%= user.button :submit, 'Place Order',
+                                    class: 'button yellow order-btn',
+                                    id: 'submit-project-btn' %>
+
+          <span class="footnote">
+              You're not billed until your project is complete and you are satisfied
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

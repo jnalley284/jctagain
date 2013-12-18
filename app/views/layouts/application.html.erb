@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Just Call tony</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+
+    <script type="text/javascript" src="//use.typekit.net/jjq8hxz.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  </head>
+
+  <body>
+    <section class="nav-wrapper">
+      <div class="row">
+        <div class="large-12">
+          <%= link_to '', root_path, class: 'logo' %>
+          <nav>
+            <%= link_to 'Home', root_path %>
+            <%= link_to 'Tour', tour_path %>
+            <%= link_to 'Pricing', pricing_path %>
+
+            <% if signed_in? %>
+              <%= link_to 'Dashboard', dashboard_path %>
+            <% else %>
+            <%= link_to 'Register', '#', 'data-reveal-id' => "register-modal",
+                                         'class' => 'with-outline' %>
+
+            <%= link_to 'Log In', '#', 'data-reveal-id' => "login-modal",
+                                         'class' => 'with-outline' %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <%= yield %>
+
+    <section class="register-wrapper fullwidth-bg">
+      <div class="row">
+        <div class="register-row">
+          <h2>Register, Order, Relax. We'll handle everything.</h2>
+          <a href="#" class="button yellow" data-reveal-id="register-modal">Register <span>.</span> It's Free</a>
+        </div>
+      </div>
+    </section>
+
+    <%= render '/shared/footer' %>
+
+    <%= render '/shared/register_modal' %>
+    <%= render '/shared/login_modal' %>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

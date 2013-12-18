@@ -1,0 +1,63 @@
+<section class="breadcrumb-wrapper">
+  <div class="row">
+    <div class="large-12">
+      <%= link_to 'Dashboard', dashboard_path %>
+      <span class="divider">//</span>
+      <span>Active Projects</span>
+    </div>
+  </div>
+</section>
+
+<div class="row">
+  <div class="large-12">
+    <div class="page-title with-btn">
+      <%= link_to 'Order Service', new_project_path, class: "button default" %>
+      <% if params[:completed] == 'true' %>
+        <h2 class="app-header"><%= current_user.projects.completed.count %> Completed Projects</h2>
+      <% else %>
+        <h2 class="app-header"><%= current_user.projects.open.count %> Active Projects</h2>
+      <% end %>
+    </div>
+
+    <section class="table-wrapper">
+      <div class="status">
+        <span>Status:</span>
+        <span>
+          <%= link_to "Active", projects_path(completed: false),
+                                class: "#{link_active(params[:completed], 'active')}" %>
+        </span>
+        <span class="middle">
+          <%= link_to "Closed", projects_path(completed: true),
+                                class: "#{link_active(params[:completed], 'closed')}" %>
+        </span>
+        <span>
+          <%= link_to "All", projects_path,
+                             class: "#{link_active(params[:completed], 'all')}" %>
+        </span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td><a href="#">Project #</a></td>
+            <td><a href="#">Description</a></td>
+            <td><a href="#">Due Date</a></td>
+            <td><a href="#">JCT Mgr</a></td>
+          </tr>
+          <tbody>
+            <% @projects.each do |project| %>
+              <tr>
+                <td>
+                  <% project_id =  project.flex_project_id ? project.flex_project_id : project.id %>
+                  <%= link_to project_id, project_path(project) %>
+                </td>
+                <td><%= project.name %></td>
+                <td><%= project.due_date %></td>
+                <td>John Smith</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </thead>
+      </table>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<section class="fullwidth-bg below-nav">
+  <br /><br />
+  <div class="row">
+    <div class="large-12">
+      <div class="modal-title">
+        <h2>Forgot your password?</h2>
+      </div>
+      <div class="modal-body">
+        <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) && msg.length > 0 %>
+              <br>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              <br>
+          <% end %>
+        <% end %>
+        <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name) ) do |f| %>
+        <%# simple_form_for("user", url: user_session_path) do |f| %>
+          <div class="errors"><%= devise_error_messages! %></div>
+          <%= f.input :email, placeholder: 'Email', as: :string, label: false %>
+
+          <%= f.submit "Reset Password", class: 'button yellow' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+

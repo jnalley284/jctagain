@@ -1,0 +1,144 @@
+.project-header {
+	ul {
+		clear:both;
+		list-style:none;
+		float:left;
+		margin:6px 0 0 0;
+		li {
+			float:left;
+			color:@appGreyText;
+			margin: 0 22px 0 0;
+			font-size:15px;
+			span { color:rgba(70,199,125,1);}
+		}
+	}
+}
+
+.project-updates {
+	float:left;
+	margin:0 0 40px 0;
+	border:1px solid rgba(231,231,231,1);
+	.box-shadow(0px 1px 1px rgba(237,237,237,1));
+	width:100%;
+	ul {
+		width: 100%;
+		margin:0;
+		li {
+			list-style:none;
+			background:@white;
+		}
+	}
+	.title {
+		float:left;
+		width:100%;
+		padding:16px;
+		background: rgba(84,84,84,1);
+		color:rgba(245,245,245,1);
+		font-weight:500;
+	}
+	.update-wrapper {
+		border-top:1px solid rgba(221,221,221,1);
+		padding:12px 14px 16px;
+		float:left;
+		clear:both;
+		width: 100%;
+		&.top {
+			clear:both;
+		}
+		strong {
+			float:left;
+			color:rgba(53,53,53,1);
+			font-weight:bold;
+		}
+		.timestamp-wrap {
+			float: right;
+		}
+		span {
+			margin:0 0 0 20px;
+			font-size: @pSize;
+			font-family: "open-sans";
+			color:rgba(174,174,174,1);
+		}
+		.description {
+			clear:both;
+			margin:4px 0 0 0;
+			font-family: "open-sans";
+			font-size:@pSize;
+			color:rgba(98,98,98,1);
+			.status {
+				color:rgba(240,99,104,1);
+				margin:0 6px 0 0;
+			}
+			.toggle-content {
+				font-size: @pSize;
+				display:inline;
+			}
+			.more-content {
+				float:left;
+				width:100%;
+				margin:10px 0 0 0;
+				color:rgba(98,98,98,1);
+			}
+			.content-end {
+				display:none;
+			}
+		}
+	}
+}
+
+.general-info {
+	ul {
+		margin:0;
+		li {
+			color:rgba(86,86,86,1);
+		}
+	}
+	li, a {
+		list-style:none;
+		font-size:@pSize + 1;
+	}
+	strong {
+		color:rgba(51,51,51,1);
+	}
+	.info-block {
+		margin:0 0 20px 0;
+		li {
+			line-height: 20px;
+		}
+	}
+}
+
+.question-wrapper {
+	padding:32px 0 0 0;
+	margin:20px 0 0 0;
+	float:left;
+	width:100%;
+	border-top:1px solid rgba(212,212,212,1);
+	h2 {
+		font-size: 21px;
+		font-weight:400;
+		color:rgba(82,82,82,1);
+	}
+	textarea {
+		border:1px solid rgba(197,197,197,1);
+		.box-shadow(none);
+		.border-radius(0);
+		height:140px;
+		width:100%;
+		margin:20px 0 0 0;
+		&:focus {
+			background: @white;
+		}
+	}
+	.button {
+		float:right;
+		margin:16px 0 0 0;
+	}
+}
+
+.payment-errors {
+	margin-bottom: 10px;
+	float: left;
+	color: red;
+	width: 100%;
+}

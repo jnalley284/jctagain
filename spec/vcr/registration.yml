@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://intranet.aanthonycorp.com/beta/Register.asmx?WSDL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - private, max-age=0
+      content-type:
+      - text/xml; charset=utf-8
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.5
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      access-control-allow-origin:
+      - '*'
+      date:
+      - Thu, 24 Oct 2013 12:22:38 GMT
+      content-length:
+      - '967'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+        xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"http://intranet.aanthonycorp.com/beta/Register\"
+        xmlns:s=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" targetNamespace=\"http://intranet.aanthonycorp.com/beta/Register\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://intranet.aanthonycorp.com/beta/Register\">\r\n
+        \     <s:element name=\"Registration\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"username\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"password\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"User_email_id\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"RegistrationResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RegistrationResult\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \   </s:schema>\r\n  </wsdl:types>\r\n  <wsdl:message name=\"RegistrationSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:Registration\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"RegistrationSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:RegistrationResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:portType
+        name=\"Register\">\r\n    <wsdl:operation name=\"Registration\">\r\n      <wsdl:input
+        message=\"tns:RegistrationSoapIn\" />\r\n      <wsdl:output message=\"tns:RegistrationSoapOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:binding name=\"Register\"
+        type=\"tns:Register\">\r\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"Registration\">\r\n      <soap:operation
+        soapAction=\"http://intranet.aanthonycorp.com/beta/Register/Registration\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"Register1\" type=\"tns:Register\">\r\n    <soap12:binding
+        transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n    <wsdl:operation
+        name=\"Registration\">\r\n      <soap12:operation soapAction=\"http://intranet.aanthonycorp.com/beta/Register/Registration\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:service name=\"Register\">\r\n    <wsdl:port name=\"Register\" binding=\"tns:Register\">\r\n
+        \     <soap:address location=\"http://intranet.aanthonycorp.com/beta/Register.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"Register1\" binding=\"tns:Register1\">\r\n
+        \     <soap12:address location=\"http://intranet.aanthonycorp.com/beta/Register.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+    http_version: '1.1'
+  recorded_at: Thu, 24 Oct 2013 12:22:46 GMT
+- request:
+    method: post
+    uri: http://intranet.aanthonycorp.com/beta/Register.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://intranet.aanthonycorp.com/beta/Register"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:Registration><tns:username>jct</tns:username><tns:password>j!ct2#</tns:password><tns:userEmailId>test@test.com</tns:userEmailId></tns:Registration></env:Body></env:Envelope>
+    headers:
+      soapaction:
+      - '"http://intranet.aanthonycorp.com/beta/Register/Registration"'
+      content-type:
+      - text/xml;charset=UTF-8
+      content-length:
+      - '452'
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - private, max-age=0
+      content-type:
+      - text/xml; charset=utf-8
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.5
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      access-control-allow-origin:
+      - '*'
+      date:
+      - Thu, 24 Oct 2013 12:22:38 GMT
+      content-length:
+      - '332'
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><RegistrationResponse
+        xmlns="http://intranet.aanthonycorp.com/beta/Register"><RegistrationResult>17690</RegistrationResult></RegistrationResponse></soap:Body></soap:Envelope>
+    http_version: '1.1'
+  recorded_at: Thu, 24 Oct 2013 12:22:47 GMT
+recorded_with: VCR 2.6.0

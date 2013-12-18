@@ -1,0 +1,16 @@
+<div id="login-modal" class="reveal-modal">
+  <div class="modal-title">
+    <h2>Login with Just Call Tony</h2>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for("user", url: user_session_path) do |f| %>
+      <div class="errors"></div>
+      <%= f.input :email, placeholder: 'Email', as: :string, label: false %>
+
+      <%= f.input :password, placeholder: 'Password', as: :password, label: false %>
+
+      <%= f.submit "Log In", class: 'button yellow' %>
+    <% end %>
+  </div>
+</div>

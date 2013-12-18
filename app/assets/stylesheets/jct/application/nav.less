@@ -1,0 +1,39 @@
+.app-nav-wrapper {
+	background:@appNavBg;
+	padding:25px 0;
+	.white-logo {
+		float:left;
+	}
+	nav {
+		float:right;
+		margin:6px 0 0 0;
+		span {
+			color:@appNavTextGrey;
+			font-size:@pSize + 1;
+			a {
+				color:rgba(202,202,202,1);				
+				font-weight: 300;
+			}
+			&.divider {
+				display:inline-block;
+				margin:0 10px;
+				height:12px;
+				width:1px;
+				background:@appNavTextGrey;
+			}
+		}
+	}
+}
+
+.breadcrumb-wrapper {
+	background:@white;
+	padding:14px 0;
+	span {
+		color:rgba(142,141,141,1);
+		font-size: @pSize + 1;
+	}
+	.divider {
+		display: inline-block;
+		margin: 0 6px;
+	}
+}

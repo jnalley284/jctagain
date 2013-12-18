@@ -1,0 +1,43 @@
+.button {
+	text-transform:uppercase;
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 1px;
+	.border-radius(@radius);
+	.box-shadow(none);
+	border:0;
+	&.yellow {
+		background:@yellowBtnBg;
+		color:@yellowBtnText;
+		font-weight:bold;
+		padding:19px 23px 18px;
+		border:1px solid @yellowBtnBorder;
+		span {
+			vertical-align:3px;
+		}
+		&.smaller {
+			padding:14px 23px 13px;
+		}
+		&:hover {
+			color:@yellowBtnText;
+		}
+	}
+	&.transparent {
+		border:2px solid @white;
+		padding:19px 24px 18px 24px;
+		color:@white;
+		background:transparent;
+	}
+	&.default {
+		text-transform:capitalize;
+		color:rgba(128,128,128,1);
+		border:1px solid rgba(194,194,194,1);
+		.gradient(rgba(236,236,236,1), rgba(236,236,236,1), @white);
+		letter-spacing:0;
+		&:hover {
+			background:@yellowBtnBg;
+			color:@yellowBtnText;
+			border:1px solid @yellowBtnBorder;
+		}
+	}
+}

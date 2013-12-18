@@ -1,0 +1,17 @@
+<div class="topbar-wrapper">
+	<div class="container">
+		<div class="topbar content">
+			<%= image_tag 'logo.png'	%>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', user_session_path %>
+          <%= link_to 'Register', register_path %>
+        <% end %>
+				<a href="#">Help</a>
+				<a href="#" class="phone">Call us at 1-800-818-4563</a>
+			</nav>
+		</div>
+	</div>
+</div>

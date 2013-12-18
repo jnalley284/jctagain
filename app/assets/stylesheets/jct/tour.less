@@ -1,0 +1,134 @@
+.tour-wrapper {
+	height:524px;
+	background:url("/assets/tour/hero-bg.png") no-repeat;
+	background-size:cover;
+	.tour-hero-content {
+		background:url("/assets/tour/jeff.png") no-repeat;
+		background-position:bottom right;
+		height:524px;
+	}
+	.strapline {
+		padding:184px 0 0 0;
+		p {
+			color:@headerWhite;
+			font-family: "proxima-nova";
+			font-size: 17px;
+			font-weight: 100;
+			line-height: 25px;
+			margin:34px 0 0 0;
+		}
+	}
+}
+
+.timeline {
+	float:left;
+	display:block;
+	width:2px;
+	margin:19px 0 0 -20px;
+	&.meet-jeff {
+		height:321px;
+		background:rgba(255,255,255,.5);
+	}
+	&.register {
+		height:432px;
+		background:rgba(217,217,217,1);
+		margin-top:-156px;
+	}
+	&.order {
+		height:478px;
+		background:rgba(217,217,217,1);
+		margin-top:-176px;
+	}
+	&.manage {
+		height:460px;
+		background:rgba(255,255,255,.5);
+		margin-top:-150px;
+	}
+	&.approved {
+		height:490px;
+		margin-top:-158px;
+		.bw-gradient(black, 400, 200);
+	}
+}
+
+.timeline-circle {
+	position:relative;
+	float: left;
+	display: block;
+	margin: 14px 0 0 -22px;
+	width: 6px;
+	height: 6px;
+	border-radius: 3px;
+	&.white {
+		background:@white;
+	}
+	&.grey {
+		background:rgba(180,180,180,1);
+	}
+}
+
+.jeff-registers-content {
+	.common-content-block {
+		p {
+			padding:0 91px 0 0;
+		}
+	}
+}
+
+.jeff-registers {
+	background:@white;
+	.common-content-block {
+		padding:128px 0 0 0;
+	}
+	.register-image {
+		background:url("/assets/tour/register-ipad.png") no-repeat;
+		background-size:contain;
+		width:100%;
+		height:287px;
+		float:right;
+		margin:88px 0 57px 0;
+	}
+}
+
+.jeff-orders {
+	background:@beige;
+	.common-content-block {
+		padding:148px 0 0 0;
+	}
+	.order-image {
+		background:url("/assets/tour/order-devices.png") no-repeat;
+		background-size:contain;
+		width:100%;
+		height:280px;
+		float:right;
+		margin:102px 0 96px 0;
+	}
+}
+
+.manage-project {
+	height:460px;
+	background:url("/assets/tour/manage-bg.png") no-repeat;
+	background-size:cover;
+	.common-content-block {
+		padding:122px 0 0 0;
+		h2, p {
+			color:@white;
+			font-weight:200;
+		}
+	}
+}
+
+.approved {
+	background:@white;
+	.common-content-block {
+		padding:130px 0 0 0;
+	}
+	.aproved-image {
+		background:url("/assets/tour/approved-imac.png") no-repeat;
+		background-size:contain;
+		width:100%;
+		height:443px;
+		float:right;
+		margin:50px 0 51px 0;
+	}
+}

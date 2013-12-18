@@ -1,0 +1,87 @@
+jQuery ->
+  Stripe.setPublishableKey("<%= Rails.application.config.stripe_publishable_key %>")
+
+  $("#service-addrs").change ->
+    if $("#service-addrs").is(":checked")
+      $(".service-address-wrapper").slideUp()
+      $(".service-address-wrapper input:text").removeClass "validate-me"
+    else
+      $(".service-address-wrapper").slideDown()
+      $(".service-address-wrapper input:text").addClass "validate-me"
+      $("#user_projects_attributes_0_address_attributes_line_2").removeClass("validate-me")
+
+
+  if $(".with-datepicker").length > 0
+    $(".with-datepicker").datepicker
+      "dateFormat": "yy-mm-dd"
+  else
+    false
+
+  # validations for first view in order
+  validateInput = undefined
+  $("#submit-order-btn").click ->
+    unless validateInput() == true
+      $('#service-needed').text($('#user_projects_attributes_0_name').val())
+      $('#due-date').text($('#user_projects_attributes_0_due_date').val())
+      $('#billing-line-1').text($('#user_addresses_attributes_0_line_1').val())
+      $('#billing-city').text($('#user_addresses_attributes_0_city').val())
+      $('#billing-state').text($('#user_addresses_attributes_0_state').val())
+      $('#billing-zip').text($('#user_addresses_attributes_0_zipcode').val())
+      $(".order-wrapper").hide()
+      $("#order-summary").show()
+
+  $('.order-button').click ->
+    $(".order-wrapper").show()
+    $("#order-summary").hide()
+
+  $('#user_last_name').blur ->
+    full_name = "#{$('#user_first_name').val()} #{$(this).val()}"
+    $('#name-on-card').val(full_name)
+
+  $("#project-form").submit (e) ->
+    $('#submit-project-btn').prop("disabled", true)
+    e.preventDefault()
+    Stripe.card.createToken
+        name:      $('#name-on-card').val()
+        number:    $('#card-number').val()
+        cvc:       $('#card-cvc').val()
+        exp_month: $('#card-expiry-month').val()
+        exp_year:  $('#card-expiry-year').val()
+    , stripeResponseHandler
+
+    false
+
+  stripeResponseHandler = (status, response) ->
+    if response.error
+      $('#submit-project-btn').prop("disabled", false)
+      $('.order-button').click()
+      $(".payment-errors").text(response.error.message);
+    else
+      window.dd = response
+      $("#user_projects_attributes_0_card_token").val(response['id'])
+      $("#project-form").get(0).submit()
+
+  validateInput = ->
+    formErrorCount = 0
+    $(".order-form .validate-me").each ->
+      errorMessage = undefined
+      if $.trim(@value) is ""
+        errorMessage = $(this).data("error-message")
+        formErrorCount++
+        $(this).addClass "with-error"
+        $(this).attr "placeholder", errorMessage
+      else
+        $(this).removeClass "with-error"
+
+    formErrorCount > 0
+
+  $(".toggle-content").nextUntil(".content-end").hide()
+  $(".toggle-content").click (e) ->
+    e.preventDefault()
+    $(this).nextUntil(".content-end").slideToggle 300
+    $span = $(this)
+    if $span.text() is "... More"
+      $span.text "... Less"
+    else
+      $span.text "... More"
+
